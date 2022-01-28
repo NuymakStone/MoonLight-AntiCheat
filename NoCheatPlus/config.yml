@@ -54,20 +54,20 @@ protection:
     hide:
       active: false
       nopermission:
-        message: '&rWATCHDOG &8» &cSorry, permission denied.'
+        message: '&bMoonLight &r» &cSorry, permission denied.'
         commands:
         - plugins
         - version
         - icanhasbukkit
         - /calc
       unknowncommand:
-        message: '&rWATCHDOG &8» &cSorry, command not found.'
+        message: '&bMoonLight &r» &cSorry, command not found.'
         commands:
         - ncp
   commands:
     consoleonly:
       active: false
-      message: '&rWATCHDOG &8» &cSorry, command could not be executed, try via console!'
+      message: '&bMoonLight &r» &cSorry, command could not be executed, try via console!'
       commands:
       - op
       - deop
@@ -93,11 +93,11 @@ checks:
       active: true
       strict: true
       delay: 95
-      intervalsurvival: 100
+      intervalsurvival: 98
       grace: 950
       actions: cancel vl>3 cmdc:fastbreak1:1:12 cancel vl>25 cmdc:fastbreak2:1:11 cancel vl>45 cmd:fastbreak:1:13 cmd:clearfastbreak:1:13 cancel
     frequency:
-      active: true
+      active: false
       intervalcreative: 95
       intervalsurvival: 45
       shortterm:
@@ -126,7 +126,7 @@ checks:
       active: true
       actions: cancel
     speed:
-      active: true
+      active: false
       interval: 2000
       limit: 55
       actions: cancel vl>10 cmdc:blockspeed:1:11 cancel
@@ -136,7 +136,7 @@ checks:
   blockplace:
     active: false
     against:
-      active: false
+      active: true
       actions: cancel
     autosign:
       active: false
@@ -156,8 +156,8 @@ checks:
         weight: 0.5
       actions: cancel vl>6 cmdc:fastplace1:1:11 cancel vl>240 cmdc:fastplace2:1:12 cancel vl>500 cmdc:fastplace:1:10 cmd:clearfastplace:1:10 cancel
     reach:
-      active: false
-      actions: cancel vl>6 cmdc:blockreach:1:11 cancel
+      active: true
+      actions: cancel
     noswing:
       active: false
       exceptions:
@@ -195,7 +195,7 @@ checks:
         commands: false
       characters: abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!?
       length: 5
-      question: '&rWATCHDOG &8» &cPlease type ''&6[captcha]&c'' to continue sending messages/commands.'
+      question: '&bMoonLight &r» &cPlease type ''&6[captcha]&c'' to continue sending messages/commands.'
       success: '&aOK, it sounds like you''''re not a spambot.'
       tries: 2
       actions: cancel cmd:kickcaptcha vl>3 cancel cmd:captcha:1:10 cancel cmd:clearcaptcha:1:15
@@ -315,7 +315,7 @@ checks:
       active: true
       timeout: 2750
       warning:
-        message: '&rWATCHDOG &8» &cYou relogged really fast!'
+        message: '&bMoonLight &r» &cYou relogged really fast!'
         number: 1
         timeout: 60000
       kickmessage: You relogged really fast! Try with a little delay.
@@ -331,7 +331,7 @@ checks:
     active: true
     bedleave:
       active: true
-      actions: cancel cmdc:bedleave:1:11 cmd:kickbedleave
+      actions: cancel
     enderpearl:
       active: true
       preventclickblock: true
@@ -419,7 +419,7 @@ checks:
       actions: cancel vl>8 log:selfhit:1:11:i cancel cmd:kickselfhit
       excludeprojectile: false
       warn: true
-      message: '&rWATCHDOG &8» &cSelf-velocity is not allowed!'
+      message: '&bMoonLight &r» &cSelf-velocity is not allowed!'
     speed:
       active: false
       limit: 30
@@ -462,7 +462,7 @@ checks:
       active: false
       actions: cancel
     fastconsume:
-      active: false
+      active: true
       duration: 1.25
       whitelist: false
       items:
@@ -682,7 +682,7 @@ checks:
       seconds: 20
       actions: cancel vl>10 cmd:keepalive:1:10 cmd:clearkeepalive:1:10 cancel
     packetfrequency:
-      active: false
+      active: true
       limitpersecond: 300
       seconds: 4
       actions: cancel cmd:kickpacketfrequency:1:10
@@ -696,29 +696,29 @@ checks:
       active: default
       actions: cancel
 strings:
-  attackfrequency1: conditionalcommands:ccmd [player] unless -ping->161|-tps-<18.5 do ncp log stream notify &rWATCHDOG &8» &a[player] &7may be using an &aAutoClicker &7(Fast Clicking) (&a[violations]VL&7)
-  attackfrequency2: conditionalcommands:ccmd [player] unless -ping->291|-tps-<18.0 do ncp log stream notify &rWATCHDOG &8» &6[player] &7is using an &6AutoClicker &7(Fast Clicking) (&6[violations]VL&7)
+  attackfrequency1: conditionalcommands:ccmd [player] unless -ping->161|-tps-<18.5 do ncp log stream notify &bMoonLight &r» &a[player] &7may be using an &aAutoClicker &7(Fast Clicking) (&a[violations]VL&7)
+  attackfrequency2: conditionalcommands:ccmd [player] unless -ping->291|-tps-<18.0 do ncp log stream notify &bMoonLight &r» &6[player] &7is using an &6AutoClicker &7(Fast Clicking) (&6[violations]VL&7)
   attackfrequency3: '&rWATCHDOG &c[player] &7is using an &cAutoClicker &7(Fast Clicking) (&c[violations]VL&7)'
-  autosign: '&rWATCHDOG &8» &c[player] &7failed &cAutosSign&7 ([tags]) (&c[violations]VL&7)'
+  autosign: '&bMoonLight &r» &c[player] &7failed &cAutosSign&7 ([tags]) (&c[violations]VL&7)'
   ban: ban [player]
   ban-ip: ban-ip [ip]
   bedleave: conditionalcommands:ccmd [player] unless -ping->161|-tps-<18.0 kick [player] bedfucker
   blockdirectionbreak: conditionalcommands:ccmd [player] unless -ping->161|-tps-<18.0 do ncp log stream notify &rWATCHDOG &c[player] &7可能在使用区块挖掘器 (&c[violations]VL&7)
-  blockdirectionplace: conditionalcommands:ccmd [player] unless -ping->161|-tps-<18.0 do ncp log stream notify &rWATCHDOG &8» &c[player] &7可能在使用Schematica Mod (&c[violations]VL&7)
-  blockreach: conditionalcommands:ccmd [player] unless -ping->191|-tps-<18.0 do ncp log stream notify &rWATCHDOG &8» &c[player] &7放置了超过合法距离的方块 &7(&c[violations]VL&7)
-  blockspeed: conditionalcommands:ccmd [player] unless -ping->191|-tps-<18.0 do ncp log stream notify &rWATCHDOG &8» &c[player]&7 &7可能在使用快速放置 (&c[violations]VL&7)
-  clickpattern1: conditionalcommands:ccmd [player] unless -ping->191|-tps-<18.0 do ncp log stream notify &rWATCHDOG &8» &a[player] &7is clicking in a pattern (&aAutoClicker&7/&aAimBot&7) (&a[violations]VL&7)
-  clickpattern2: conditionalcommands:ccmd [player] unless -ping->281|-tps-<18.0 do ncp log stream notify &rWATCHDOG &8» &6[player] &7triggered &6ClickPattern &7(&6[violations]VL&7)
+  blockdirectionplace: conditionalcommands:ccmd [player] unless -ping->161|-tps-<18.0 do ncp log stream notify &bMoonLight &r» &c[player] &7可能在使用Schematica Mod (&c[violations]VL&7)
+  blockreach: conditionalcommands:ccmd [player] unless -ping->191|-tps-<18.0 do ncp log stream notify &bMoonLight &r» &c[player] &7放置了超过合法距离的方块 &7(&c[violations]VL&7)
+  blockspeed: conditionalcommands:ccmd [player] unless -ping->191|-tps-<18.0 do ncp log stream notify &bMoonLight &r» &c[player]&7 &7可能在使用快速放置 (&c[violations]VL&7)
+  clickpattern1: conditionalcommands:ccmd [player] unless -ping->191|-tps-<18.0 do ncp log stream notify &bMoonLight &r» &a[player] &7is clicking in a pattern (&aAutoClicker&7/&aAimBot&7) (&a[violations]VL&7)
+  clickpattern2: conditionalcommands:ccmd [player] unless -ping->281|-tps-<18.0 do ncp log stream notify &bMoonLight &r» &6[player] &7triggered &6ClickPattern &7(&6[violations]VL&7)
   clickpattern3: '&rWATCHDOG &c[player] &7does not click like a human (&cAutoClicker&7) (&c[violations]VL&7) (&c[violations]VL&7)'
   crits1: conditionalcommands:ccmd [player] unless -ping->191|-tps-<18.0 do ncp log stream notify &7(&6!&7) &6[player] 可能在使用刀爆 &7(&6[violations]VL&7)
   crits2: '&rWATCHDOG &c[player] &7可能在使用刀爆 &7(&c[violations]VL&7)'
   fastbow: conditionalcommands:ccmd [player] unless -ping->191|-tps-<18.5 kick [player] fastbow
-  fastbreak1: 'conditionalcommands:ccmd [player] unless -ping->161|-tps-<18.5 do ncp log stream notify &rWATCHDOG &8» &a[player] 可能在使用快速挖掘 &7(Block: [blocktype]) (&a[violations]VL&7)'
-  fastbreak2: 'conditionalcommands:ccmd [player] unless -ping->281|-tps-<18.5 do ncp log stream notify &rWATCHDOG &8» &6[player] 可能在使用快速挖掘 &7(Block: [blocktype]) (&6[violations]VL&7)'
+  fastbreak1: 'conditionalcommands:ccmd [player] unless -ping->161|-tps-<18.5 do ncp log stream notify &bMoonLight &r» &a[player] 可能在使用快速挖掘 &7(Block: [blocktype]) (&a[violations]VL&7)'
+  fastbreak2: 'conditionalcommands:ccmd [player] unless -ping->281|-tps-<18.5 do ncp log stream notify &bMoonLight &r» &6[player] 可能在使用快速挖掘 &7(Block: [blocktype]) (&6[violations]VL&7)'
   fastbreak3: '&rWATCHDOG &c[player] &7failed &cFastMine &7(Block: [blocktype]) (&c[violations]VL&7)'
-  fastclick1: '&rWATCHDOG &8» &6[player] &7failed &6AutoSteal &7from a container (&6[violations]VL&7)'
-  fastclick2: conditionalcommands:ccmd [player] unless -ping->291|-tps-<18.0 do ncp log stream notify &rWATCHDOG &8» &c[player] &7failed &cAutoSteal &7from a container (&c[violations]VL&7) (Kicked)
-  fastconsume: conditionalcommands:ccmd [player] unless -ping->191|-tps-<18.0 do ncp log stream notify &rWATCHDOG &8» &6[player] 可能在使用快吃 &7([food]) (&c[violations]VL&7)
+  fastclick1: '&bMoonLight &r» &6[player] &7failed &6AutoSteal &7from a container (&6[violations]VL&7)'
+  fastclick2: conditionalcommands:ccmd [player] unless -ping->291|-tps-<18.0 do ncp log stream notify &bMoonLight &r» &c[player] &7failed &cAutoSteal &7from a container (&c[violations]VL&7) (Kicked)
+  fastconsume: conditionalcommands:ccmd [player] unless -ping->191|-tps-<18.0 do ncp log stream notify &bMoonLight &r» &6[player] 可能在使用快吃 &7([food]) (&c[violations]VL&7)
   fastheal1: conditionalcommands:ccmd [player] unless -ping->191|-tps-<18.5 do ncp log stream notify &7(&6!&7) &6[player] &7可能在使用快速回血 &7(&6[violations]VL&7)
   fastheal2: conditionalcommands:ccmd [player] unless -ping->261|-tps-<18.0 do ncp log stream notify &rWATCHDOG &c[player] &7可能在使用快速回血 &7(&c[violations]VL&7)
   fastplace1: conditionalcommands:ccmd [player] unless -ping->191|-tps-<18.0 do ncp log stream notify &7(&a!&7) &a[player] &7failed &aFastPlace &7(&a[violations]VL&7)
@@ -728,20 +728,20 @@ strings:
   gutenberg: '&rWATCHDOG &c[player] &7创建了一本超多页数的书 (&cGutenberg&7) (&c[violations]VL&7)'
   instantnuker: conditionalcommands:ccmd [player] unless -ping->191|-tps-<18.0 kick [player] nuker
   inventorymove: conditionalcommands:ccmd [player] unless -ping->151|-tps-<18.0 kick [player] inventorymove
-  fightangle1: '&rWATCHDOG &8» &a[player] &7可能在使用自瞄 &7(Angle) ([tags]) (&a[violations]VL&7)'
-  fightangle2: conditionalcommands:ccmd [player] unless -ping->191|-tps-<18.0 do ncp log stream notify &rWATCHDOG &8» &6[player] &7可能在使用自瞄 &7(Angle)([tags]) (&6[violations]VL&7)
+  fightangle1: '&bMoonLight &r» &a[player] &7可能在使用自瞄 &7(Angle) ([tags]) (&a[violations]VL&7)'
+  fightangle2: conditionalcommands:ccmd [player] unless -ping->191|-tps-<18.0 do ncp log stream notify &bMoonLight &r» &6[player] &7可能在使用自瞄 &7(Angle)([tags]) (&6[violations]VL&7)
   fightangle3: '&rWATCHDOG &c[player] &7可能在使用自瞄 &7(Angle) ([tags]) (&c[violations]VL&7)'
-  fightdirection1: '&rWATCHDOG &8» &a[player] &7可能在使用自瞄 &7(Direction) (&a[violations]VL&7)'
-  fightdirection2: conditionalcommands:ccmd [player] unless -ping->191|-tps-<18.0 do ncp log stream notify &rWATCHDOG &8» &6[player] &7可能在使用自瞄 &7(Direction) (&6[violations]VL&7)
+  fightdirection1: '&bMoonLight &r» &a[player] &7可能在使用自瞄 &7(Direction) (&a[violations]VL&7)'
+  fightdirection2: conditionalcommands:ccmd [player] unless -ping->191|-tps-<18.0 do ncp log stream notify &bMoonLight &r» &6[player] &7可能在使用自瞄 &7(Direction) (&6[violations]VL&7)
   fightdirection3: conditionalcommands:ccmd [player] unless -ping->261|-tps-<18.0 do ncp log stream notify &rWATCHDOG &c[player] &7可能在使用自瞄 &7(Direction) (&c[violations]VL&7)
-  fightreach1: '&rWATCHDOG &8» &a[player] &7failed (Combat) &aReach &7(&a[violations]VL&7)'
-  fightreach2: '&rWATCHDOG &8» &6[player] &7failed (Combat) &6Reach &7(&6[violations]VL&7)'
+  fightreach1: '&bMoonLight &r» &a[player] &7failed (Combat) &aReach &7(&a[violations]VL&7)'
+  fightreach2: '&bMoonLight &r» &6[player] &7failed (Combat) &6Reach &7(&6[violations]VL&7)'
   fightreach3: '&rWATCHDOG &c[player] &7failed (Combat) &cReach &7([reachdistance] Blocks) (&c[violations]VL&7)'
-  fightspeed1: conditionalcommands:ccmd [player] unless -ping->191|-tps-<18.5 do ncp log stream notify &rWATCHDOG &8» &a[player] &7failed (Combat) &aSpeed &7 (13+ CPS) (&a[violations]VL&7)
-  fightspeed2: conditionalcommands:ccmd [player] unless -ping->291|-tps-<18.0 do ncp log stream notify &rWATCHDOG &8» &6[player] &7failed (Combat) &6Speed &7(13+ CPS) (&6[violations]VL&7)
+  fightspeed1: conditionalcommands:ccmd [player] unless -ping->191|-tps-<18.5 do ncp log stream notify &bMoonLight &r» &a[player] &7failed (Combat) &aSpeed &7 (13+ CPS) (&a[violations]VL&7)
+  fightspeed2: conditionalcommands:ccmd [player] unless -ping->291|-tps-<18.0 do ncp log stream notify &bMoonLight &r» &6[player] &7failed (Combat) &6Speed &7(13+ CPS) (&6[violations]VL&7)
   fightspeed3: '&rWATCHDOG &c[player] &7failed (Combat) &cSpeed &7([cps] CPS) (&c[violations]VL&7)'
-  improbable1: '&rWATCHDOG &8» &a[player] &7可能在使用自瞄 &7(Improbable) (&a[violations]VL&7)'
-  improbable2: conditionalcommands:ccmd [player] unless -ping->191|-tps-<18.0 do ncp log stream notify &rWATCHDOG &8» &6[player] &7可能在使用自瞄 &7(Improbable) (&6[violations]VL&7)
+  improbable1: '&bMoonLight &r» &a[player] &7可能在使用自瞄 &7(Improbable) (&a[violations]VL&7)'
+  improbable2: conditionalcommands:ccmd [player] unless -ping->191|-tps-<18.0 do ncp log stream notify &bMoonLight &r» &6[player] &7可能在使用自瞄 &7(Improbable) (&6[violations]VL&7)
   improbable3: '&rWATCHDOG &c[player] &7可能在使用自瞄 &7(Improbable) (&c[violations]VL&7)'
   instanteat: conditionalcommands:ccmd [player] unless -ping->141|-tps-<18.0 kick [player] fasteat
   javaerror: conditionalcommands:ccmd [player] unless -ping->261|-tps-<18.0 do kick [player] Internal Exception; io.netty.handler.timeout.ReadTimeoutException
@@ -758,26 +758,26 @@ strings:
   kickpacketfrequency: ncp kick [player] Too many packets.
   kickselfhit: kick [player] You tried to hit yourself!
   msgtempdenylogin: You are temporarily denied to join this server.
-  morepackets1: conditionalcommands:ccmd [player] unless -ping->191|-tps-<18.5 do ncp log stream notify &rWATCHDOG &8» &6[player] &7可能在使用变速齿轮/闪现 (&6[violations]VL&7)
-  morepackets2: conditionalcommands:ccmd [player] unless -ping->291|-tps-<18.0 do ncp log stream notify &rWATCHDOG &8» &c[player] &7可能在使用变速齿轮/闪现 &7(&cTimer&7/&cBlink&7) (&c[violations]VL&7)
+  morepackets1: conditionalcommands:ccmd [player] unless -ping->191|-tps-<18.5 do ncp log stream notify &bMoonLight &r» &6[player] &7可能在使用变速齿轮/闪现 (&6[violations]VL&7)
+  morepackets2: conditionalcommands:ccmd [player] unless -ping->291|-tps-<18.0 do ncp log stream notify &bMoonLight &r» &c[player] &7可能在使用变速齿轮/闪现 &7(&cTimer&7/&cBlink&7) (&c[violations]VL&7)
   nofall: conditionalcommands:ccmd [player] unless -ping->161|-tps-<18.0 kick [player] nofall
-  notifyfly1: conditionalcommands:ccmd [player] unless -ping->191|-tps-<18.0 do ncp log stream notify &rWATCHDOG &8» &a[player] &7可能在使用飞行/加速 (&a[violations]VL&7)
-  notifyfly2: conditionalcommands:ccmd [player] unless -ping->291|-tps-<18.0 do ncp log stream notify &rWATCHDOG &8» &6[player] &7可能在使用飞行/加速 (&6[violations]VL&7)
-  notifyfly3: '&rWATCHDOG &8» &c[player] &7可能在使用飞行/加速'
-  notifyflyspeed1: conditionalcommands:ccmd [player] unless -ping->191|-tps-<18.5 do ncp log stream notify &rWATCHDOG &8» &a[player] &7移动的非常快 (&aExtraElytra&7) (&a[violations]VL&7)
-  notifyflyspeed2: conditionalcommands:ccmd [player] unless -ping->241|-tps-<18.0 do ncp log stream notify &rWATCHDOG &8» &6[player] &7移动的非常快 (&6ExtraElytra&7) ([tags])(&6[violations]VL&7)
+  notifyfly1: conditionalcommands:ccmd [player] unless -ping->191|-tps-<18.0 do ncp log stream notify &bMoonLight &r» &a[player] &7可能在使用飞行/加速 (&a[violations]VL&7)
+  notifyfly2: conditionalcommands:ccmd [player] unless -ping->291|-tps-<18.0 do ncp log stream notify &bMoonLight &r» &6[player] &7可能在使用飞行/加速 (&6[violations]VL&7)
+  notifyfly3: '&bMoonLight &r» &c[player] &7可能在使用飞行/加速'
+  notifyflyspeed1: conditionalcommands:ccmd [player] unless -ping->191|-tps-<18.5 do ncp log stream notify &bMoonLight &r» &a[player] &7移动的非常快 (&aExtraElytra&7) (&a[violations]VL&7)
+  notifyflyspeed2: conditionalcommands:ccmd [player] unless -ping->241|-tps-<18.0 do ncp log stream notify &bMoonLight &r» &6[player] &7移动的非常快 (&6ExtraElytra&7) ([tags])(&6[violations]VL&7)
   notifyflyspeed3: '&rWATCHDOG &c[player] &7移动的非常快 (&cExtraElytra&7) (&c[violations]VL&7)'
   noswing: conditionalcommands:ccmd [player] unless -ping->191|-tps-<18.0 do ncp log stream notify &rWATCHDOG &c[player] &7可能在使用无摇摆 &7(&c[violations]VL&7)
-  phase1: conditionalcommands:ccmd [player] unless -ping->191|-tps-<18.5 do ncp log stream notify &rWATCHDOG &8» &a[player] &7可能在使用穿墙 &7(&a[violations]VL&7)
-  phase2: conditionalcommands:ccmd [player] unless -ping->291|-tps-<18.0 do ncp log stream notify &rWATCHDOG &8» &6[player] &7可能在使用穿墙 &7(&6[violations]VL&7)
+  phase1: conditionalcommands:ccmd [player] unless -ping->191|-tps-<18.5 do ncp log stream notify &bMoonLight &r» &a[player] &7可能在使用穿墙 &7(&a[violations]VL&7)
+  phase2: conditionalcommands:ccmd [player] unless -ping->291|-tps-<18.0 do ncp log stream notify &bMoonLight &r» &6[player] &7可能在使用穿墙 &7(&6[violations]VL&7)
   phase3: '&rWATCHDOG &c[player] &7可能在使用穿墙 (&c[violations]VL&7)'
-  projectilespeed: '&rWATCHDOG &8» &c[player] &7可能在使用背包清理器 &7(&c[violations]VL&7)'
-  scaffold1: conditionalcommands:ccmd [player] unless -ping->191|-tps-<18.5 do ncp log stream notify &rWATCHDOG &8» &6[player] &7failed &6Scaffold &7([tags]) (&6[violations]VL&7)
-  scaffold2: conditionalcommands:ccmd [player] unless -ping->291|-tps-<18.5 do ncp log stream notify &rWATCHDOG &8» &6[player] &7failed &6Scaffold &7([tags]) (&6[violations]VL&7)
+  projectilespeed: '&bMoonLight &r» &c[player] &7可能在使用背包清理器 &7(&c[violations]VL&7)'
+  scaffold1: conditionalcommands:ccmd [player] unless -ping->191|-tps-<18.5 do ncp log stream notify &bMoonLight &r» &6[player] &7failed &6Scaffold &7([tags]) (&6[violations]VL&7)
+  scaffold2: conditionalcommands:ccmd [player] unless -ping->291|-tps-<18.5 do ncp log stream notify &bMoonLight &r» &6[player] &7failed &6Scaffold &7([tags]) (&6[violations]VL&7)
   scaffold3: '&rWATCHDOG &c[player] &7failed &cScaffold &7([tags]) (&c[violations]VL&7)'
-  selfhit: '&rWATCHDOG &8» &c[player] &7可能在自伤飞行 &7(&c[violations]VL&7)'
-  vehicleenvelope: '&rWATCHDOG &8» &c[player] &7可能在使用坐骑非法移动 &7 ([tags]) (&c[violations]VL&7)'
-  wrongturn: conditionalcommands:ccmd [player] unless -ping->251|-tps-<18.0 do ncp log stream notify &rWATCHDOG &8» &c[player] &7错误的转弯 (&c[violations]VL&7)
+  selfhit: '&bMoonLight &r» &c[player] &7可能在自伤飞行 &7(&c[violations]VL&7)'
+  vehicleenvelope: '&bMoonLight &r» &c[player] &7可能在使用坐骑非法移动 &7 ([tags]) (&c[violations]VL&7)'
+  wrongturn: conditionalcommands:ccmd [player] unless -ping->251|-tps-<18.0 do ncp log stream notify &bMoonLight &r» &c[player] &7错误的转弯 (&c[violations]VL&7)
   attackfrequency: conditionalcommands:ccmd [player] unless -ping->151|-tps-<18.5 kick [player] attackfrequency
   captcha: infraction add [player] spambot
   chatspam: infraction add [player] spam
@@ -823,7 +823,7 @@ strings:
   morepackets: conditionalcommands:ccmd [player] unless -ping->151|-tps-<18.5 kick [player] morepackets
   phase: conditionalcommands:ccmd [player] unless -ping->131|-tps-<18.5 kick [player] phase
   pitchpattern: conditionalcommands:ccmd [player] unless -ping->151|-tps-<18.5 kick [player] pitchpattern
-  pitchpattern1: '&rWATCHDOG &8» &6[player] &7is using an &6AimBot &7(PitchPattern) (&6[violations]VL&7)'
+  pitchpattern1: '&bMoonLight &r» &6[player] &7is using an &6AimBot &7(PitchPattern) (&6[violations]VL&7)'
   scaffold: conditionalcommands:ccmd [player] unless -ping->151|-tps-<18.5 kick [player] scaffold
   survivalfly: conditionalcommands:ccmd [player] unless -ping->151|-tps-<18.5 kick [player] fly
 compatibility:
