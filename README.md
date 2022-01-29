@@ -86,16 +86,16 @@ NuymakStone
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/NuymakStone/Season-AntiCheat.svg?style=for-the-badge
-[contributors-url]: https://github.com/NuymakStone/Season-AntiCheat/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/NuymakStone/Season-AntiCheat.svg?style=for-the-badge
-[forks-url]: https://github.com/NuymakStone/Season-AntiCheat/network/members
-[stars-shield]: https://img.shields.io/github/stars/NuymakStone/Season-AntiCheat.svg?style=for-the-badge
-[stars-url]: https://github.com/NuymakStone/Season-AntiCheat/stargazers
-[issues-shield]: https://img.shields.io/github/issues/NuymakStone/Season-AntiCheat.svg?style=for-the-badge
-[issues-url]: https://github.com/NuymakStone/Season-AntiCheat/issues
-[license-shield]: https://img.shields.io/github/license/NuymakStone/Season-AntiCheat.svg?style=for-the-badge
-[license-url]: https://github.com/NuymakStone/Season-AntiCheat/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/NuymakStone/MoonLight-AntiCheat.svg?style=for-the-badge
+[contributors-url]: https://github.com/NuymakStone/MoonLight-AntiCheat/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/NuymakStone/MoonLight-AntiCheat.svg?style=for-the-badge
+[forks-url]: https://github.com/NuymakStone/MoonLight-AntiCheat/network/members
+[stars-shield]: https://img.shields.io/github/stars/NuymakStone/MoonLight-AntiCheat.svg?style=for-the-badge
+[stars-url]: https://github.com/NuymakStone/MoonLight-AntiCheat/stargazers
+[issues-shield]: https://img.shields.io/github/issues/NuymakStone/MoonLight-AntiCheat.svg?style=for-the-badge
+[issues-url]: https://github.com/NuymakStone/MoonLight-AntiCheat/issues
+[license-shield]: https://img.shields.io/github/license/NuymakStone/MoonLight-AntiCheat.svg?style=for-the-badge
+[license-url]: https://github.com/NuymakStone/MoonLight-AntiCheat/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
 [product-screenshot]: images/screenshot.png
